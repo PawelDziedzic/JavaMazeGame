@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e915c670-6064-4e7e-819b-f5d4a061bcc6" name="Default" comment="" />
+    <list default="true" id="e915c670-6064-4e7e-819b-f5d4a061bcc6" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImprovedMazePanel.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Labirynt/JMaze.class" afterPath="$PROJECT_DIR$/out/production/Labirynt/JMaze.class" />
+      <change beforePath="$PROJECT_DIR$/src/JMaze.java" afterPath="$PROJECT_DIR$/src/JMaze.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,8 +45,8 @@
       <file leaf-file-name="JMaze.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JMaze.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state relative-caret-position="298">
+              <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#addMaze#0;class#JMaze#0" expanded="false" />
@@ -53,14 +58,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleMazePanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SingleMazePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SingleMazePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1921">
-              <caret line="173" column="24" lean-forward="false" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
+            <state relative-caret-position="83">
+              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="61" selection-end-column="5" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#6792#6793#0" expanded="true" />
                 <element signature="e#6873#6874#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImprovedMazePanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ImprovedMazePanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="62" column="4" lean-forward="false" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#968#969#0" expanded="true" />
+                <element signature="e#995#996#0" expanded="true" />
+                <element signature="e#1223#1224#0" expanded="true" />
+                <element signature="e#1257#1258#0" expanded="true" />
+                <element signature="e#1308#1309#0" expanded="true" />
+                <element signature="e#1340#1341#0" expanded="true" />
+                <element signature="e#1389#1390#0" expanded="true" />
+                <element signature="e#1419#1420#0" expanded="true" />
+                <element signature="e#1474#1475#0" expanded="true" />
+                <element signature="e#1510#1511#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,7 +97,7 @@
       <file leaf-file-name="MazePanelTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MazePanelTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="43">
               <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
               <folding>
                 <element signature="e#82#83#0" expanded="true" />
@@ -90,6 +118,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -105,6 +136,7 @@
         <option value="$PROJECT_DIR$/src/SinlgeMazePanel.java" />
         <option value="$PROJECT_DIR$/src/SingleMazePanel.java" />
         <option value="$PROJECT_DIR$/src/JMaze.java" />
+        <option value="$PROJECT_DIR$/src/ImprovedMazePanel.java" />
       </list>
     </option>
   </component>
@@ -129,8 +161,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -147,7 +177,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -287,16 +319,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -311,7 +345,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -331,17 +364,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/SingleMazePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#6792#6793#0" expanded="true" />
-            <element signature="e#6873#6874#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MazePanelTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -378,6 +400,7 @@
         <state relative-caret-position="1105">
           <caret line="84" column="44" lean-forward="false" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#6792#6793#0" expanded="true" />
             <element signature="e#6873#6874#0" expanded="true" />
           </folding>
@@ -441,6 +464,7 @@
         <state relative-caret-position="1428">
           <caret line="84" column="44" lean-forward="false" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#6792#6793#0" expanded="true" />
             <element signature="e#6873#6874#0" expanded="true" />
           </folding>
@@ -511,6 +535,7 @@
         <state relative-caret-position="1054">
           <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#6792#6793#0" expanded="true" />
             <element signature="e#6873#6874#0" expanded="true" />
           </folding>
@@ -581,6 +606,7 @@
         <state relative-caret-position="1241">
           <caret line="92" column="23" lean-forward="true" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#6792#6793#0" expanded="true" />
             <element signature="e#6873#6874#0" expanded="true" />
           </folding>
@@ -650,6 +676,7 @@
         <state relative-caret-position="1122">
           <caret line="66" column="9" lean-forward="true" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#6792#6793#0" expanded="true" />
             <element signature="e#6873#6874#0" expanded="true" />
           </folding>
@@ -679,6 +706,7 @@
         <state relative-caret-position="391">
           <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#6792#6793#0" expanded="true" />
             <element signature="e#6873#6874#0" expanded="true" />
           </folding>
@@ -749,6 +777,7 @@
         <state relative-caret-position="170">
           <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#6792#6793#0" expanded="true" />
             <element signature="e#6873#6874#0" expanded="true" />
           </folding>
@@ -792,6 +821,7 @@
         <state relative-caret-position="170">
           <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#6792#6793#0" expanded="true" />
             <element signature="e#6873#6874#0" expanded="true" />
           </folding>
@@ -831,23 +861,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MazePanelTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding>
-            <element signature="e#82#83#0" expanded="true" />
-            <element signature="e#109#110#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JMaze.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state relative-caret-position="298">
+          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#addMaze#0;class#JMaze#0" expanded="false" />
@@ -858,13 +875,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MazePanelTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding>
+            <element signature="e#82#83#0" expanded="true" />
+            <element signature="e#109#110#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SingleMazePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1921">
-          <caret line="173" column="24" lean-forward="false" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
+        <state relative-caret-position="83">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="61" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#6792#6793#0" expanded="true" />
             <element signature="e#6873#6874#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImprovedMazePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="62" column="4" lean-forward="false" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#968#969#0" expanded="true" />
+            <element signature="e#995#996#0" expanded="true" />
+            <element signature="e#1223#1224#0" expanded="true" />
+            <element signature="e#1257#1258#0" expanded="true" />
+            <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1340#1341#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+            <element signature="e#1419#1420#0" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
           </folding>
         </state>
       </provider>

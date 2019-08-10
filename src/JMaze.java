@@ -42,13 +42,8 @@ public class JMaze extends JPanel {
         revalidate();
     }
 
-    void CreateMaze() {
-        cheatArray = new String[maxX + 1][maxY + 1];
-        for (int i = 0; i <= maxY; i++) {
-            for (int j = 0; j <= maxX; j++) {
-                cheatArray[j][i] = " ";
-            }
-        }
+    void CreateGoodMaze()
+    {
         Random generator = new Random();
         Integer x0;
         x0 = (int) (generator.nextDouble() * maxX);
@@ -56,7 +51,47 @@ public class JMaze extends JPanel {
         y0 = (int) (generator.nextDouble() * maxY);
         playerX = x0;
         playerY = y0;
-        cheatArray[x0][y0] = "0";
+
+        pastListaPar.add(new Pair<>(x0, y0));
+        MazePanelTree MPT = new MazePanelTree();
+
+        MPT.insert(x0,y0);
+
+        do {
+            if (!pastListaPar.contains(new Pair<>(x0 + 1, y0)) && x0 < maxX) {
+                listaPar.add(new Pair<>(x0 + 1, y0));
+                pastListaPar.add(new Pair<>(x0 + 1, y0));
+            }
+            if (!pastListaPar.contains(new Pair<>(x0 - 1, y0)) && x0 >= 1) {
+                listaPar.add(new Pair<>(x0 - 1, y0));
+                pastListaPar.add(new Pair<>(x0 - 1, y0));
+            }
+            if (!pastListaPar.contains(new Pair<>(x0, y0 + 1)) && y0 < maxY) {
+                listaPar.add(new Pair<>(x0, y0 + 1));
+                pastListaPar.add(new Pair<>(x0, y0 + 1));
+            }
+            if (!pastListaPar.contains(new Pair<>(x0, y0 - 1)) && y0 >= 1) {
+                listaPar.add(new Pair<>(x0, y0 - 1));
+                pastListaPar.add(new Pair<>(x0, y0 - 1));
+            }
+
+            //randomly add one of them to maze, remove it from pool
+            int id;
+            id = (int) (generator.nextDouble() * (listaPar.size()));
+            x0 = listaPar.get(id).getKey();
+            y0 = listaPar.get(id).getValue();
+
+        }while(listaPar.size()>0);
+    }
+
+    void CreateMaze() {
+        Random generator = new Random();
+        Integer x0;
+        x0 = (int) (generator.nextDouble() * maxX);
+        Integer y0;
+        y0 = (int) (generator.nextDouble() * maxY);
+        playerX = x0;
+        playerY = y0;
 
         pastListaPar.add(new Pair<>(x0, y0));
         MazePanelTree MPT = new MazePanelTree();
@@ -89,7 +124,6 @@ public class JMaze extends JPanel {
             y0 = listaPar.get(id).getValue();
             succesValue = MPT.insert(x0,y0);
             if (succesValue) {
-                cheatArray[x0][y0] = "0";
                 listaPar.remove(id);
             }
         } while (listaPar.size() > 0);
@@ -100,6 +134,7 @@ public class JMaze extends JPanel {
             }
         }
 
+        /*
         for (int i = 0; i <= maxY; i++) {
             for (int j = 0; j <= maxX; j++) {
                 if (testArray[j][i] != null)
@@ -108,12 +143,7 @@ public class JMaze extends JPanel {
                     System.out.print(" ");
             }
             System.out.println();
-        }
-    }
-
-    void CreateGoodMaze()
-    {
-
+        }*/
     }
 
     void addMaze() {
