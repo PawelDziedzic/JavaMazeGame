@@ -2,7 +2,6 @@ import javafx.util.Pair;
 import javax.swing.*;
 import java.awt.*;
 
-
 public class ImprovedMazePanel extends JPanel{
     boolean hasleft, hasright, hastop, hasbottom, isStart;
     ImprovedMazePanel left, right, top, bottom;
@@ -29,6 +28,7 @@ public class ImprovedMazePanel extends JPanel{
         right = null;
         isStart=false;
         tolerance =5;
+
 
 
         revalidate();
@@ -60,5 +60,54 @@ public class ImprovedMazePanel extends JPanel{
         this.bottom = bottom;
     }
 
-    
+    @Override
+    public void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        g.setColor(Color.BLACK);
+        g.fillRect(0,0,lineWidth,lineHeight);
+        g.fillRect(0,9*lineHeight,lineWidth,lineHeight);
+        g.fillRect(9*lineWidth,0,lineWidth,lineHeight);
+        g.fillRect(9*lineWidth,9*lineHeight,lineWidth,lineHeight);
+        if(isStart){
+            g.setColor(Color.RED);
+            g.fillRect(2*lineWidth,2*lineHeight,6*lineWidth,6*lineHeight);
+            g.setColor(Color.BLACK);
+        }
+        if(coordinates.getKey()==JMaze.maxX&&coordinates.getValue()==0)
+            g.drawRect(2*lineWidth,2*lineHeight,6*lineWidth,6*lineHeight);
+        if(bottom==null)
+            g.fillRect(lineWidth,9*lineHeight,8*lineWidth,lineHeight);
+        if(top==null)
+            g.fillRect(lineWidth,0,8*lineWidth,lineHeight);
+        if(left==null)
+            g.fillRect(0,lineHeight,lineWidth,8*lineHeight);
+        if(right==null)
+            g.fillRect(9*lineWidth,lineHeight,lineWidth,8*lineHeight);
+
+    }
+
+    void insertUp(ImprovedMazePanel imp)
+    {
+        top = imp;
+        hastop = true;
+    }
+
+    void insertDown(ImprovedMazePanel imp)
+    {
+        bottom = imp;
+        hasbottom = true;
+    }
+
+    void insertLeft(ImprovedMazePanel imp)
+    {
+        left = imp;
+        hasleft = true;
+    }
+
+    void insertRight(ImprovedMazePanel imp)
+    {
+        right = imp;
+        hasright = true;
+    }
 }

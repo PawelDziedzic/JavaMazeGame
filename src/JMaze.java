@@ -1,13 +1,14 @@
 import javafx.util.Pair;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Collections.*;
+
 
 public class JMaze extends JPanel {
 
-    SingleMazePanel[][] testArray;
+    ImprovedMazePanel[][] arrayOfPanels;
     ArrayList<Pair<Integer, Integer>> listaPar;
     ArrayList<Pair<Integer, Integer>> pastListaPar;
     String[][] cheatArray;
@@ -17,45 +18,57 @@ public class JMaze extends JPanel {
     int iterCounter;
 
     static int wdth, hght;
+    ArrayList<Integer> orderOfCalls;
 
     JMaze() {
         super();
-        maxX = 19;
-        maxY = 19;
+        maxX = 29;
+        maxY = 29;
         listaPar = new ArrayList<>();
         pastListaPar = new ArrayList<>();
         errorList = new ArrayList<>();
-        testArray = new SingleMazePanel[maxX+1][maxY+1];
+        arrayOfPanels = new ImprovedMazePanel[maxX+1][maxY+1];
         wdth = 600;
         hght = 600;
         iterCounter =0;
+        orderOfCalls = new ArrayList<>();
+        orderOfCalls.add(0);
+        orderOfCalls.add(1);
+        orderOfCalls.add(2);
+        orderOfCalls.add(3);
+
         setPreferredSize(new Dimension(wdth, hght));
         setLayout(new GridLayout(maxY+1,maxX+1));
         setBackground(new Color(1f,0f,1f));
-        CreateMaze();
+        CreateGoodMaze();
         for (int i = 0; i <= maxY; i++) {
             for (int j = 0; j <= maxX; j++) {
-                testArray[j][i].revalidate();
-                add(testArray[j][i]);
+                //testArray[j][i].revalidate();
+               // add(testArray[j][i]);
+                arrayOfPanels[j][i].revalidate();
+                add(arrayOfPanels[j][i]);
             }
         }
+
+
         revalidate();
     }
 
     void CreateGoodMaze()
     {
+        java.util.Collections.shuffle(orderOfCalls);
+
         Random generator = new Random();
         Integer x0;
-        x0 = (int) (generator.nextDouble() * maxX);
+        x0 = (int) (generator.nextDouble() * maxX/2);
         Integer y0;
-        y0 = (int) (generator.nextDouble() * maxY);
+        y0 = (int) (generator.nextDouble() * maxY/2)+maxY/2;
         playerX = x0;
         playerY = y0;
 
         pastListaPar.add(new Pair<>(x0, y0));
-        MazePanelTree MPT = new MazePanelTree();
-
-        MPT.insert(x0,y0);
+        arrayOfPanels[x0][y0] = new ImprovedMazePanel(x0,y0);
+        arrayOfPanels[x0][y0].isStart = true;
 
         do {
             if (!pastListaPar.contains(new Pair<>(x0 + 1, y0)) && x0 < maxX) {
@@ -81,87 +94,80 @@ public class JMaze extends JPanel {
             x0 = listaPar.get(id).getKey();
             y0 = listaPar.get(id).getValue();
 
+            int orderCount =0;
+            while(orderCount<4 && !insertIntoArray(arrayOfPanels, x0,y0, orderOfCalls.get(orderCount))){
+                orderCount++;
+            }
+
+            if(orderCount>3)
+                break;
+            else
+            {
+                java.util.Collections.shuffle(orderOfCalls);
+                listaPar.remove(id);
+            }
+
         }while(listaPar.size()>0);
     }
 
-    void CreateMaze() {
-        Random generator = new Random();
-        Integer x0;
-        x0 = (int) (generator.nextDouble() * maxX);
-        Integer y0;
-        y0 = (int) (generator.nextDouble() * maxY);
-        playerX = x0;
-        playerY = y0;
 
-        pastListaPar.add(new Pair<>(x0, y0));
-        MazePanelTree MPT = new MazePanelTree();
-        boolean succesValue=MPT.insert(x0,y0);
-        do {
+    boolean insertIntoArray(ImprovedMazePanel[][] arr, Integer x0, Integer y0, Integer dir)
+    {
+        switch(dir)
+        {
+            case 0:
+                if(x0>0 && arr[x0-1][y0]!=null)
+                {
 
-            if (succesValue) {
-                if (!pastListaPar.contains(new Pair<>(x0 + 1, y0)) && x0 < maxX) {
-                    listaPar.add(new Pair<>(x0 + 1, y0));
-                    pastListaPar.add(new Pair<>(x0 + 1, y0));
-                }
-                if (!pastListaPar.contains(new Pair<>(x0 - 1, y0)) && x0 >= 1) {
-                    listaPar.add(new Pair<>(x0 - 1, y0));
-                    pastListaPar.add(new Pair<>(x0 - 1, y0));
-                }
-                if (!pastListaPar.contains(new Pair<>(x0, y0 + 1)) && y0 < maxY) {
-                    listaPar.add(new Pair<>(x0, y0 + 1));
-                    pastListaPar.add(new Pair<>(x0, y0 + 1));
-                }
-                if (!pastListaPar.contains(new Pair<>(x0, y0 - 1)) && y0 >= 1) {
-                    listaPar.add(new Pair<>(x0, y0 - 1));
-                    pastListaPar.add(new Pair<>(x0, y0 - 1));
-                }
-            }
+                    ImprovedMazePanel imp = new ImprovedMazePanel(x0,y0);
+                    arr[x0-1][y0].setRight(imp);
+                    imp.setLeft(arr[x0-1][y0]);
+                    arr[x0][y0] = imp;
+                    return true;
+                }; break;
+            case 1:
+                if(y0>0 && arr[x0][y0-1]!=null)
+                {
 
-            //randomly add one of them to maze, remove it from pool
-            int id;
-            id = (int) (generator.nextDouble() * (listaPar.size()));
-            x0 = listaPar.get(id).getKey();
-            y0 = listaPar.get(id).getValue();
-            succesValue = MPT.insert(x0,y0);
-            if (succesValue) {
-                listaPar.remove(id);
-            }
-        } while (listaPar.size() > 0);
+                    ImprovedMazePanel imp = new ImprovedMazePanel(x0,y0);
+                    arr[x0][y0-1].setBottom(imp);
+                    imp.setTop(arr[x0][y0-1]);
+                    arr[x0][y0] = imp;
+                    return true;
+                }; break;
+            case 2:
+                if(x0<maxX && arr[x0+1][y0]!=null)
+                {
 
-        for (int i = 0; i <= maxX; i++) {
-            for (int j = 0; j <= maxY; j++) {
-                testArray[i][j] = MPT.find(i,j);
-            }
+                    ImprovedMazePanel imp = new ImprovedMazePanel(x0,y0);
+                    arr[x0+1][y0].setLeft(imp);
+                    imp.setRight(arr[x0+1][y0]);
+                    arr[x0][y0] = imp;
+                    return true;
+                }; break;
+            case 3:
+                if(y0<maxY && arr[x0][y0+1]!=null)
+                {
+
+                    ImprovedMazePanel imp = new ImprovedMazePanel(x0,y0);
+                    arr[x0][y0+1].setTop(imp);
+                    imp.setBottom(arr[x0][y0+1]);
+                    arr[x0][y0] = imp;
+                    return true;
+                }; break;
+                default: break;
         }
-
-        /*
-        for (int i = 0; i <= maxY; i++) {
-            for (int j = 0; j <= maxX; j++) {
-                if (testArray[j][i] != null)
-                    testArray[j][i].unicode();
-                else
-                    System.out.print(" ");
-            }
-            System.out.println();
-        }*/
-    }
-
-    void addMaze() {
-        for (int i = 0; i <= maxY; i++) {
-            for (int j = 0; j <= maxX; j++) {
-                    add(testArray[j][i]);
-            }
-        }
+        return false;
     }
 
     void moveUp()
     {
-        if(testArray[playerX][playerY].top!=null) {
-            testArray[playerX][playerY].isStart = false;
-            testArray[playerX][playerY].repaint();
+        if(arrayOfPanels[playerX][playerY].top!=null) {
+            arrayOfPanels[playerX][playerY].isStart = false;
+            arrayOfPanels[playerX][playerY].repaint();
             playerY--;
-            testArray[playerX][playerY].isStart = true;
-            testArray[playerX][playerY].repaint();
+            arrayOfPanels[playerX][playerY].isStart = true;
+            arrayOfPanels[playerX][playerY].repaint();
         }
         if(playerX==maxX&&playerY==0)
             youWin();
@@ -169,34 +175,34 @@ public class JMaze extends JPanel {
     }
     void moveDown()
     {
-        if(testArray[playerX][playerY].bottom!=null) {
-            testArray[playerX][playerY].isStart = false;
-            testArray[playerX][playerY].repaint();
+        if(arrayOfPanels[playerX][playerY].bottom!=null) {
+            arrayOfPanels[playerX][playerY].isStart = false;
+            arrayOfPanels[playerX][playerY].repaint();
             playerY++;
-            testArray[playerX][playerY].isStart = true;
-            testArray[playerX][playerY].repaint();
+            arrayOfPanels[playerX][playerY].isStart = true;
+            arrayOfPanels[playerX][playerY].repaint();
         }
         revalidate();
     }
     void moveLeft()
     {
-        if(testArray[playerX][playerY].left!=null) {
-            testArray[playerX][playerY].isStart = false;
-            testArray[playerX][playerY].repaint();
+        if(arrayOfPanels[playerX][playerY].left!=null) {
+            arrayOfPanels[playerX][playerY].isStart = false;
+            arrayOfPanels[playerX][playerY].repaint();
             playerX--;
-            testArray[playerX][playerY].isStart = true;
-            testArray[playerX][playerY].repaint();
+            arrayOfPanels[playerX][playerY].isStart = true;
+            arrayOfPanels[playerX][playerY].repaint();
         }
         revalidate();
     }
     void moveRight()
     {
-        if(testArray[playerX][playerY].right!=null) {
-            testArray[playerX][playerY].isStart = false;
-            testArray[playerX][playerY].repaint();
+        if(arrayOfPanels[playerX][playerY].right!=null) {
+            arrayOfPanels[playerX][playerY].isStart = false;
+            arrayOfPanels[playerX][playerY].repaint();
             playerX++;
-            testArray[playerX][playerY].isStart = true;
-            testArray[playerX][playerY].repaint();
+            arrayOfPanels[playerX][playerY].isStart = true;
+            arrayOfPanels[playerX][playerY].repaint();
         }
         if(playerX==maxX&&playerY==0)
             youWin();
